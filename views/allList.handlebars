@@ -1,0 +1,39 @@
+<div class="container">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">№ Секции</th>
+            <th scope="col">№ Этажа</th>
+            <th scope="col">№ Квартиры</th>
+            <th scope="col">Тип счётчика</th>
+            <th scope="col">№ Счётчика</th>
+            <th scope="col">Показания</th>
+            <th scope="col">№ КДЛ</th>
+            <th scope="col">№ АСР</th>
+            <th scope="col">КДЛ/АСР/Канал</th>
+            <th scope="col">Комментарий</th>
+            <th scope="col">Добавлено</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each object}}
+        <tr>
+            <th scope="row">{{section}}</th>
+            <td>{{floor}}</td>
+            <td>{{flat}}</td>
+            <!--<td>{{typeMeter}}_{{flat}}</td>-->
+            <td>{{typeMeter}}</td>
+            <td>{{numberMeter}}</td>
+            <td>{{sumMeter}}</td>
+            <td>{{numberKdl}}</td>
+            <td>{{numberAsr}}</td>
+            <td>{{chanel}}</td>
+            <td>{{comment}}</td>
+            <td>{{createdAt}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+</div>

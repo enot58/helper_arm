@@ -1,0 +1,26 @@
+{
+  "name": "hbs_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^7.0.0-alpha.4"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "hbs": "^4.2.0",
+    "nodemon": "^2.0.15",
+    "xlsx": "^0.18.5"
+  }
+}

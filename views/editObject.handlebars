@@ -1,0 +1,45 @@
+
+<div class="container-md mt-2">
+{{#each objectOld}}
+    <form method="post">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Наименование объекта</label>
+            <input type="text" name="newName" class="form-control" value="{{name}}" >
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Адрес</label>
+            <input type="text" name="newAddress" class="form-control" value="{{address}}">
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Количество квартир</label>
+                    <input type="number" name="flat" class="form-control" value="{{flat}}" >
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Количество секций</label>
+                    <input type="number" name="section" class="form-control" value="{{section}}" >
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Количество этажей</label>
+                    <input type="number" name="floor" class="form-control" value="{{floor}}" >
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{{/each}}
+
+    <!--{{genSection objectOld}}-->
+
+</div>
+

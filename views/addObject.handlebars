@@ -1,0 +1,62 @@
+
+<div class="container-md mt-2">
+    <form method="post">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Наименование объекта</label>
+            <input type="text" name="name" class="form-control" >
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Адрес</label>
+            <input type="text" name="address" class="form-control">
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Количество квартир</label>
+                    <input type="number" name="flat" class="form-control" >
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Количество секций</label>
+                    <input type="number" name="section" class="form-control" >
+                </div>
+            </div>
+            <div class="col">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Количество этажей</label>
+                    <input type="number" name="floor" class="form-control" >
+                </div>
+            </div>
+        </div>
+        <!--<div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>-->
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    {{#each object}}
+    <div class="container" style="display: flex; ">
+        <div class="card mt-5 " style="width: 18rem;margin: 0 20px">
+            <!--<img src="img" class="card-img-top" alt="...">-->
+            <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <p class="card-text">{{address}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Квартир - {{flat}}</li>
+                <li class="list-group-item">Секций - {{section}}</li>
+                <li class="list-group-item">Этажей - {{floor}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="/editObject/{{id}}">Редактировать</a>|
+                <form action="deleteObject/{{id}}" method="POST" style="display:inline;">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
