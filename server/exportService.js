@@ -1,20 +1,40 @@
 import xlsx from 'xlsx';
 import path from 'path';
 
-const exportExcel = (data, workSheetColumnNames, workSheetName, filePath) => {
+
+
+
+
+
+
+
+
+
+
+
+const exportExcelWater = (data, workSheetColumnNames, workSheetName, filePath) => {
     const workBook = xlsx.utils.book_new();
-    const workSheetData = [
-        workSheetColumnNames,
-        ... data
-    ];
+    const workSheetData = [...workSheetColumnNames, ... data];
     const workSheet = xlsx.utils.aoa_to_sheet(workSheetData);
     xlsx.utils.book_append_sheet(workBook, workSheet, workSheetName);
     xlsx.writeFile(workBook, path.resolve(filePath));
 }
 
-const exportUsersToExcel = (finishArr, workSheetColumnNames, workSheetName, filePath) => {
+
+const exportExcelHot = (data, workSheetColumnNames, workSheetName, filePath) => {
+    const workBook = xlsx.utils.book_new();
+    const workSheetData = [...workSheetColumnNames, ... data];
+    const workSheet = xlsx.utils.aoa_to_sheet(workSheetData);
+    xlsx.utils.book_append_sheet(workBook, workSheet, workSheetName);
+    xlsx.writeFile(workBook, path.resolve(filePath));
+}
+
+const exportWaterMetersToExcel = (finishArr, workSheetColumnNames, workSheetName, filePath) => {
     const data = finishArr.map(fA => {
         return [
+            fA.one,
+            fA.two,
+            fA.three,
             fA.name,
             fA.id,
             fA.parentId,
@@ -40,11 +60,12 @@ const exportUsersToExcel = (finishArr, workSheetColumnNames, workSheetName, file
             fA.commentTwo
         ];
     });
-    exportExcel(data, workSheetColumnNames, workSheetName, filePath);
+    exportExcelWater(data, workSheetColumnNames, workSheetName, filePath);
+    return true
 }
 
 const exportHotMeterToExcel = (finishArrHotMeter, workSheetColumnNameHotMeter, workSheetName, filePath) => {
-    const data = finishArrHotMeter.map(fA => {
+    /*const data = finishArrHotMeter.map(fA => {
         return [
             fA.name,
             fA.id,
@@ -73,9 +94,30 @@ const exportHotMeterToExcel = (finishArrHotMeter, workSheetColumnNameHotMeter, w
             fA.commentOne,
             fA.commentTwo
         ];
-    });
-    exportExcel(data, workSheetColumnNameHotMeter, workSheetName, filePath);
+    });*/
+    //const arrHeader = Object.keys(finishArrHotMeter[0])
+
+
+    const data = finishArrHotMeter.map((val) => {
+        return Object.values(val)
+
+    })
+
+
+
+    exportExcelHot(data, workSheetColumnNameHotMeter, workSheetName, filePath);
+    return true
 }
+
+
+
+
+
+
+
+
+
+
 
 const exportElMeterToExcel = (finishArrElMeter, workSheetColumnNameElMeter, workSheetName, filePath) => {
     const data = finishArrElMeter.map(fA => {
@@ -107,10 +149,12 @@ const exportElMeterToExcel = (finishArrElMeter, workSheetColumnNameElMeter, work
         fA.requestParameter
         ];
     });
+
     exportExcel(data, workSheetColumnNameElMeter, workSheetName, filePath);
+    return true
 }
 
 
 
 
-export {exportUsersToExcel, exportHotMeterToExcel, exportElMeterToExcel}
+export {exportWaterMetersToExcel, exportHotMeterToExcel, exportElMeterToExcel}

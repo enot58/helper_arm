@@ -1,6 +1,6 @@
 import {Sequelize} from "sequelize";
 
-const sequelize = new Sequelize('kvartet', 'root', '', {
+const sequelize = new Sequelize('askue_hbs', 'root', '', {
     host: 'localhost',
     port: 3306,
     dialect: "mysql",
@@ -8,5 +8,6 @@ const sequelize = new Sequelize('kvartet', 'root', '', {
 
     }
 })
+
 
 export default sequelize
