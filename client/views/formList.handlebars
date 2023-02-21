@@ -1,0 +1,136 @@
+<div class="container">
+    <button class="btn btn-primary">
+        <a style="color: aliceblue; text-decoration: none" href="/">Вернуться</a>
+    </button>
+    <div class="row">
+        <div class="col-6">
+            <form class="mt-3" method="post" action="/formList/formGetWater">
+                <h3>Сформировать КДЛ</h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group mt-2">
+                            <span class="input-group-text">Номер КДЛ</span>
+
+                            <input name="numberKdl" type="number" class="form-control">
+                        </div>
+
+                        <div class="col">
+                            <select name="formWaterMeter" class="form-select mt-2" aria-label="Default select example">
+                                <option selected>Выбор секции</option>
+                                {{#each sections}}
+                                    <option value={{section}}>{{section}}</option>
+                                {{!-- <option value="2">2</option>
+                                <option value="3">3</option> --}}
+                                {{/each}}
+                            </select>
+                        </div>
+                        <!--<div id="emailHelp" class="form-text">Если счётчик воды</div>-->
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Сформировать</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <form class="mt-3" action="/formList/wantTree" method="post">
+                <h3>Получить показания КДЛ</h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="col">
+                            <select id="optionValue" name="formWaterMeterSection" class="form-select mt-2" aria-label="Default select example">
+                                <option selected>Выбор секции</option>
+                                {{#each sections}}
+                                    <option value={{section}}>{{section}}</option>
+                                {{!-- <option value="2">2</option>
+                                <option value="3">3</option> --}}
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="input-group mt-2">
+
+                            <select name="formWaterMeterKdl" id="addOption" class="form-select mt-2" aria-label="Default select example">
+                                <option selected>Выбор КДЛ</option>
+
+                            </select>
+                            <!--<input name="numberKdl" type="number" class="form-control">-->
+                        </div>
+
+
+                        <!--<div id="emailHelp" class="form-text">Если счётчик воды</div>-->
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Сформировать</button>
+            </form>
+        </div>
+    </div>
+
+
+    <hr>
+    <form class="mt-3" action="/formList/formHotMeter" method="post">
+        <h3>Сформировать тепло</h3>
+        <div class="row">
+            <div class="col-3">
+                <select name="formHotMeter" class="form-select mt-2" aria-label="Default select example">
+                    <option selected>Выбор секции</option>
+                    {{#each sections}}
+                    <option  value={{section}}>{{section}}</option>
+                    {{!-- <option value="2">2</option>
+                    <option value="3">3</option> --}}
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Сформировать</button>
+    </form>
+    <hr>
+    <form class="mt-3" action="/formList/formElMeter" method="post">
+        <h3>Сформировать электроэнергию</h3>
+        <div class="row">
+            <div class="col-3">
+                <select name="formElMeter" class="form-select mt-2" aria-label="Default select example">
+                    <option selected>Выбор секции</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Сформировать</button>
+    </form>
+    <hr>
+
+    <hr>
+</div>
+
+<script>
+    "use strict"
+    let optionValue = document.getElementById("optionValue")
+    let addOption = document.getElementById("addOption")
+
+    optionValue.addEventListener('change', async (e) => {
+        //console.log(e.target.value)
+
+        addOption.innerHTML=""
+
+        try {
+            let url = `http://192.168.3.27:5123/formList/kdl?section=${e.target.value}`;
+            let response = await fetch(url)
+            let arrKdl = await response.json()
+            function addOptions (arr, optionId) {
+                arr.map((a) => {
+                    let newOption = new Option(`${a.numberKdl}`, `${a.numberKdl}`)
+                    optionId.append(newOption)
+                })
+            }
+
+            addOptions(arrKdl, addOption)
+            /*let newOption = new Option("1", "2")
+            addOption.append(newOption)*/
+
+        } catch (e) {
+            console.log(e)
+        }
+    })
+
+
+
+</script>

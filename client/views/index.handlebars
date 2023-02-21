@@ -1,9 +1,63 @@
+{{#if objectOne}}
+{{#with objectOne}}
 <div class="container">
     <form method="post">
         <div class="row">
             <div class="col">
                 <label class="form-label">Секция</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" name="section">
+                <input type="number" value={{section}} autofocus="autofocus" class="form-control" id="exampleInputEmail1" name="section">
+            </div>
+            <div class="col">
+                <label class="form-label">Этаж</label>
+                <input type="number" value={{floor}} class="form-control" id="exampleInputEmail1" name="floor">
+            </div>
+            <div class="col">
+                <label class="form-label">Квартира</label>
+                <input type="number" value={{flat}} class="form-control" id="exampleInputEmail1" name="flat">
+            </div>
+        </div>
+        <select name="typeMeter" class="form-select mt-2" aria-label="Default select example">
+            <option >Выбор счётчика</option>
+            <option value="Счётчик горячей воды">Счётчик горячей воды</option>
+            <option selected value="Счётчик холодной воды">Счётчик холодной воды</option>
+            <option value="Счётчик электроэнергии">Счётчик электроэнергии</option>
+            <option value="Счётчик тепла">Счётчик тепла</option>
+        </select>
+        <div class="mb-3 mt-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <span class="input-group-text">Номер на АСР</span>
+                        <input name="numberKdl" value={{numberKdl}} type="number" class="form-control">
+                        <input name="numberAsr" value={{numberAsr}} type="number" class="form-control">
+                    </div>
+                    <div id="emailHelp" class="form-text">Введите номер АСР(если это вода). Например номер АСР "3/16". Первое поле 3, второе 16</div>
+                </div>
+            </div>
+
+
+            <label class="form-label">Номер счётчика</label>
+            <input type="number" value={{numberMeter}} class="form-control" id="exampleInputEmail1" name="numberMeter">
+
+            <!--<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>-->
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Показания</label>
+            <input type="text" value={{sumMeter}} class="form-control" id="exampleInputEmail1" name="sumMeter">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Комментарий</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="comment">
+        </div>
+        {{/with}}
+        {{else}}
+
+            <div class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Секция</label>
+                <input type="number" autofocus="autofocus" class="form-control" id="exampleInputEmail1" name="section">
             </div>
             <div class="col">
                 <label class="form-label">Этаж</label>
@@ -15,9 +69,9 @@
             </div>
         </div>
         <select name="typeMeter" class="form-select mt-2" aria-label="Default select example">
-            <option selected>Выбор счётчика</option>
+            <option >Выбор счётчика</option>
             <option value="Счётчик горячей воды">Счётчик горячей воды</option>
-            <option value="Счётчик холодной воды">Счётчик холодной воды</option>
+            <option selected value="Счётчик холодной воды">Счётчик холодной воды</option>
             <option value="Счётчик электроэнергии">Счётчик электроэнергии</option>
             <option value="Счётчик тепла">Счётчик тепла</option>
         </select>
@@ -47,7 +101,8 @@
             <label class="form-label">Комментарий</label>
             <input type="text" class="form-control" id="exampleInputEmail1" name="comment">
         </div>
-        <button type="submit" class="btn btn-primary">Добавить</button>
+        {{/if}}
+        <button type="submit" id="buttonSubmit" class="btn btn-primary">Добавить</button>
 
 
     </form>
@@ -70,6 +125,10 @@
             <div class="col-3">
                 <label class="form-label">Квартира</label>
                 <input type="number" class="form-control" id="exampleInputEmail1" name="flat">
+            </div>
+            <div class="col-3">
+                <label class="form-label">Cекция</label>
+                <input type="number" class="form-control" id="exampleInputEmail1" name="section">
             </div>
             <div class="col-3">
                 <button type="submit" class="btn btn-primary mt-3">Получить</button>
@@ -102,9 +161,9 @@
                 <td>{{comment}}</td>
                 <td>
                     <a href="/mainEditMeter/{{id}}">Ред</a>|
-                    <!--<form action="deleteMainMeter/{{id}}" method="POST">
+                    <form action="deleteMainMeter/{{id}}" method="POST">
                         <input type="submit" value="Удалить" />
-                    </form>-->
+                    </form>
                 </td>
             </tr>
             </tbody>
@@ -112,3 +171,15 @@
 
     {{/each}}
 </div>
+
+
+<script>
+    "use strict"
+    let input = document.querySelector('#exampleInputEmail1')
+    let buttonSubmit = document.querySelector('#buttonSubmit')
+
+    
+
+
+
+</script>

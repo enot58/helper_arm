@@ -227,7 +227,8 @@ MainAddMeter.init({
     comment: {
         type: Sequelize.STRING,
         allowNull: true
-    }
+    },
+    
 
 },{
     sequelize, modelName: "main_meter"
