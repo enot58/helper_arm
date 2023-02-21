@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto px-0">
+            {{>leftMenu}}
+        </div>
+        <main class="col ps-md-2 pt-2">
+            <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
+            <div class="page-header pt-3">
+                <h2>Добавить холодную и горячую воду</h2>
+            </div>
+            <hr>
+            <div class="row">
+                <!--Tabs для добавления-->
+                <div class="col-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Добавление</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Лист</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Операции</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                            <form action="">
+                                <div class="row m-2">
+                                    <!--общие настройки-->
+                                    <div class="row">
+                                        <div class="col-sm-3 col-6">
+                                            <label class="form-label">Секция</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" name="section">
+                                        </div>
+                                        <div class="col-sm-3 col-6">
+                                            <label class="form-label">Этаж</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" name="section">
+                                        </div>
+                                        <div class="col-sm-3 col-6">
+                                            <label class="form-label">Квартира</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" name="section">
+                                        </div>
+                                        <div class="col-sm-3 col-6">
+                                            <label class="form-label">№ КДЛ</label>
+                                            <input type="number" class="form-control" id="exampleInputEmail1" name="section">
+                                        </div>
+                                    </div>
+                                    <!--настройки для Холодной воды-->
+                                    <div class="row mt-3">
+                                        <div class="col-sm-6 col-12" style="border: 1px solid #d7d7d7; border-radius: 15px; padding: 10px">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <select name="typeMeter" class="form-select mt-2" aria-label="Default select example">
+                                                        <option >Выбор счётчика</option>
+                                                        <option value="Счётчик горячей воды">Счётчик горячей воды</option>
+                                                        <option selected value="Счётчик холодной воды">Счётчик холодной воды</option>
+                                                        <option value="Счётчик электроэнергии">Счётчик электроэнергии</option>
+                                                        <option value="Счётчик тепла">Счётчик тепла</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!--настройки для Горячей воды-->
+                                        <div class="col-sm-6 col-12" style="border: 1px solid #d7d7d7; border-radius: 15px; padding: 10px">
+                                            <div class="row" >
+                                                <div class="col">
+                                                    <select name="typeMeter" class="form-select mt-2" aria-label="Default select example">
+                                                        <option >Выбор счётчика</option>
+                                                        <option selected value="Счётчик горячей воды">Счётчик горячей воды</option>
+                                                        <option value="Счётчик холодной воды">Счётчик холодной воды</option>
+                                                        <option value="Счётчик электроэнергии">Счётчик электроэнергии</option>
+                                                        <option value="Счётчик тепла">Счётчик тепла</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+
+
+
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            Лист
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">Операции</div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+
+<style>
+    #sidebar-nav {
+        width: 180px;
+    }
+</style>

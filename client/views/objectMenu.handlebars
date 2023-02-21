@@ -1,10 +1,26 @@
-<div class="container">
-    <div class="row">
-        <div class="col">
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto px-0">
             {{>leftMenu}}
         </div>
-        <div class="col">
-
-        </div>
+        <main class="col ps-md-2 pt-2">
+            <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
+            <div class="page-header pt-3">
+                <h2>Описание</h2>
+            </div>
+            <p class="lead">Нажми на Menu что бы открыть и скрыть</p>
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                   Здесь будет описание.
+                </div>
+            </div>
+        </main>
     </div>
 </div>
+
+<style>
+    #sidebar-nav {
+        width: 180px;
+    }
+</style>

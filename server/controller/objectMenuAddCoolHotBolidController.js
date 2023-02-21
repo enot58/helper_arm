@@ -1,10 +1,16 @@
 
-class ObjectMenuAddCoolHotBolid {
+class ObjectMenuAddCoolHotBolidController {
 
     getPage (req, res) {
         try {
             const {id} = req.params
-            console.log(id)
+
+
+            return res.render('objectMenuAddCoolHotBolid', {
+                object: {
+                    id: id
+                }
+            })
         } catch (e) {
             console.log(e)
         }
@@ -13,4 +19,4 @@ class ObjectMenuAddCoolHotBolid {
 
 }
 
-export default new ObjectMenuAddCoolHotBolid()
+export default new ObjectMenuAddCoolHotBolidController()

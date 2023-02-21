@@ -50,7 +50,7 @@ class IndexController {
                     ],
                     raw: true
                 }).then((data) => {
-                    res.render('index', {
+                    res.render('indexTwo', {
                         object: data,
                         objectOne: data[0]
                     })

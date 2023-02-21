@@ -52,7 +52,7 @@ app.set('views', '../client/views');
 
 
 (async () => {
-    await sequelize.sync().then( () => [
+    await sequelize.sync({force: false}).then( () => [
         app.listen(PORT, function () {
             console.log(`Сервер ожидает подключения ${PORT}`);
         })

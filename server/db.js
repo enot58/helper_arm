@@ -6,7 +6,8 @@ const sequelize = new Sequelize('askue_hbs', 'root', '', {
     dialect: "mysql",
     define: {
 
-    }
+    },
+    logging: false
 })
 
 

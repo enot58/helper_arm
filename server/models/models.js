@@ -36,7 +36,7 @@ ObjectBuilds.init({
         type: Sequelize.STRING,
         allowNull: false
     },
-    address: {
+    description: {
         type: Sequelize.STRING,
         allowNull: false
     }
